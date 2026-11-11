@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: 245 247 250;
+  --surface: 255 255 255;
+  --ink: 14 27 46;
+  --muted: 84 99 122;
+  --line: 218 225 234;
+  --navy: 31 58 95;
+  --teal: 13 133 122;
+  --amber: 176 128 0;
+  color-scheme: light;
+}
+.dark {
+  --paper: 10 20 35;
+  --surface: 17 31 51;
+  --ink: 230 237 246;
+  --muted: 152 169 192;
+  --line: 38 56 82;
+  --navy: 125 166 214;
+  --teal: 64 201 184;
+  --amber: 232 186 64;
+  color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { @apply bg-paper text-ink font-body antialiased; }
+h1, h2, h3 { @apply font-display; }
+::selection { background: rgb(var(--teal) / 0.25); }
+:focus-visible { outline: 2px solid rgb(var(--teal)); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+.section { @apply py-20 sm:py-28; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors; }
+.btn-primary { @apply bg-navy text-paper hover:bg-teal; }
+.btn-ghost { @apply border border-line text-ink hover:border-teal hover:text-teal; }
+.chip { @apply inline-block rounded-md border border-line px-2 py-0.5 text-xs text-muted; }
+
+@keyframes travel { from { transform: translateY(0); } to { transform: translateY(var(--travel)); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
